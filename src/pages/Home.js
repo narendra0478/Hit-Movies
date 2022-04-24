@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import BookList from '../components/BookList'
-import BookForm from '../components/BookForm'
+import MovieList from '../components/MovieList'
+import MovieForm from '../components/MovieForm'
 
 export default function Home() {
-  const [books, setBooks] = useState([
+  const [movies, setMovies] = useState([
     { title: 'the name of the wind', id: 1 },
     { title: 'the dragon reborn', id: 2 },
     { title: 'the final empire', id: 3 },
@@ -11,9 +11,9 @@ export default function Home() {
   ])
 
   return (
-    <div className="App">
-      {books && <BookList books={books} />}
-      <BookForm />
+    <div>
+      {movies && <MovieList movies={movies} />}
+      <MovieForm />
     </div>
   );
 }
