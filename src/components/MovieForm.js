@@ -1,11 +1,17 @@
 import { useState } from 'react'
 
+import { database } from '../firebase/config'
+import { collection, addDoc } from 'firebase/firestore'
+
 export default function MovieForm() {
   const [newMovie, setNewMovie] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(newMovie)
+    
+    await addDoc(collection(database, 'movies'), {
+      title: newMovie
+    })
 
     setNewMovie('')
   }

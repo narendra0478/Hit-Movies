@@ -1,7 +1,11 @@
+import { database } from '../firebase/config'
+import { doc, deleteDoc } from 'firebase/firestore'
+
 export default function MovieList({ movies }) {
 
     const handleClick = async (id) => {
-      console.log(id)
+      const ref = doc(database, 'movies', id)
+      await deleteDoc(ref)
     }
   
     return (
