@@ -1,16 +1,20 @@
 import { useState } from 'react'
+import { useAuthContext } from '../hooks/useAuthContext'
 
+// firebase imports
 import { database } from '../firebase/config'
 import { collection, addDoc } from 'firebase/firestore'
 
 export default function MovieForm() {
   const [newMovie, setNewMovie] = useState('')
+  const { user } = useAuthContext()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     
     await addDoc(collection(database, 'movies'), {
-      title: newMovie
+      title: newMovie,
+      uid: user.uid
     })
 
     setNewMovie('')
