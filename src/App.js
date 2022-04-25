@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import Updatepassword from './pages/Updatepassword'
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
             <Route path="/login">
               { user && <Redirect to = "/" /> }
               { !user && <Login /> }
+            </Route>
+            <Route path="/update">
+            { user && <Updatepassword /> }
+            { !user && <Login /> }
             </Route>
           </Switch>
         </BrowserRouter>

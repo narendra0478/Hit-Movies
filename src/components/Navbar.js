@@ -23,7 +23,10 @@ export default function Navbar() {
         )}
         
         {user && (
-          <li onClick={ logout }>Logout</li>
+          <>
+            <li><Link to="/update">UpdatePassword</Link></li>
+            <li onClick={ logout }>Logout</li>
+          </>
         )}
       </ul>
     </nav>
